@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alitransfers.com/sitemap.xml
