@@ -1,11 +1,3 @@
-/**
-* Template Name: Instant
-* Template URL: https://bootstrapmade.com/newtemplate-bootstrap-website-template/
-* Updated: Jul 07 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
 
