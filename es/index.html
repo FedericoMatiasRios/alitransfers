@@ -145,10 +145,10 @@
 
       <nav id="navmenu" class="navmenu" role="navigation" aria-label="Menú principal">
         <ul>
-          <li><a href="#hero" class="active">Inicio</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#features">Flota</a></li>
-          <li><a href="#pricing">Tarifas</a></li>
+          <li><a href="#inicio" class="active">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#flota">Flota</a></li>
+          <li><a href="#tarifas">Tarifas</a></li>
           <li class="dropdown lang-dropdown">
             <a href="#" id="selected-lang"><span class="lang-flag"><img src="../assets/img/misc/flag-es.png" alt="Español" style="width:20px;height:14px;margin-right:8px;vertical-align:middle;"></span> <span class="lang-label">Español</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -168,7 +168,7 @@
   <main class="main" role="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section" aria-labelledby="hero-title">
+    <section id="inicio" class="hero section" aria-labelledby="hero-title">
       <div class="container">
         <div class="hero-wrapper">
 
@@ -381,7 +381,7 @@
     </section><!-- /Testimonials Section -->
 
     <!-- Services Section -->
-    <section id="services" class="services section" aria-labelledby="services-title">
+    <section id="servicios" class="services section" aria-labelledby="services-title">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -477,8 +477,8 @@
 
     </section><!-- /Services Section -->
 
-    <!-- Features Section -->
-    <section id="features" class="features section" aria-labelledby="features-title">
+    <!-- Fleet Section -->
+    <section id="flota" class="features section" aria-labelledby="fleet-title">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -520,13 +520,13 @@
                 <a href="../assets/img/misc/alicante-taxi-transfers.jpg" class="glightbox mb-md-0" data-gallery="fleet-gallery">
                   <img src="../assets/img/misc/alicante-taxi-transfers.jpg" alt="AliTransfers fleet - Citroën C4 Hybrid luxury vehicle" class="img-fluid rounded" loading="lazy">
                 </a>
-                <a href="../assets/img/misc/alicante-luxury-transfers.jpg" class="glightbox d-none d-md-block pt-1" data-gallery="fleet-gallery">
+                <a id="desktop" href="../assets/img/misc/alicante-luxury-transfers.jpg" class="glightbox d-none d-md-block pt-1" data-gallery="fleet-gallery">
                   <img src="../assets/img/misc/alicante-luxury-transfers.jpg" alt="Citroën C4 Hybrid rear view" class="img-fluid rounded" loading="lazy">
                 </a>
               </div>
               <!-- Imagen secundaria en móvil, fuera de la columna -->
               <div class="col-6 d-md-none">
-                <a href="../assets/img/misc/alicante-luxury-transfers.jpg" class="pt-1">
+                <a id="movil" href="../assets/img/misc/alicante-luxury-transfers.jpg" class="pt-1">
                   <img src="../assets/img/misc/alicante-luxury-transfers.jpg" alt="Citroën C4 Hybrid rear view" class="img-fluid rounded" loading="lazy">
                 </a>
               </div>
@@ -600,7 +600,7 @@
     </section><!-- /Features Section -->
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing section" aria-labelledby="pricing-title">
+    <section id="tarifas" class="pricing section" aria-labelledby="pricing-title">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -1081,6 +1081,51 @@
 
   <!-- Main JS File -->
   <script src="../assets/js/main.js"></script>
+
+  <!-- Script para añadir glightbox dinámicamente según dispositivo -->
+  <script>
+    function updateGlightboxLinks() {
+      var desktop = document.getElementById('desktop');
+      var movil = document.getElementById('movil');
+      var isDesktop = window.matchMedia('(min-width: 768px)').matches;
+
+      // Limpia ambos
+      if (desktop) {
+        desktop.classList.remove('glightbox');
+        desktop.removeAttribute('data-gallery');
+      }
+      if (movil) {
+        movil.classList.remove('glightbox');
+        movil.removeAttribute('data-gallery');
+      }
+
+      // Asigna solo al visible
+      if (isDesktop && desktop) {
+        desktop.classList.add('glightbox');
+        desktop.setAttribute('data-gallery', 'fleet-gallery');
+      } else if (!isDesktop && movil) {
+        movil.classList.add('glightbox');
+        movil.setAttribute('data-gallery', 'fleet-gallery');
+      }
+    }
+
+    // Inicializa Glightbox después de actualizar los enlaces
+    var glightboxInstance;
+    function reinitGlightbox() {
+      if (glightboxInstance && typeof glightboxInstance.destroy === 'function') {
+        glightboxInstance.destroy();
+      }
+      updateGlightboxLinks();
+      glightboxInstance = GLightbox({ selector: '.glightbox' });
+    }
+
+    window.addEventListener('DOMContentLoaded', reinitGlightbox);
+    window.addEventListener('resize', function() {
+      // Espera a que termine el resize para evitar múltiples reinicios
+      clearTimeout(window._glbResizeTimeout);
+      window._glbResizeTimeout = setTimeout(reinitGlightbox, 200);
+    });
+  </script>
 
 </body>
 
