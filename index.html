@@ -24,7 +24,21 @@
   <link rel="alternate" href="https://alitransfers.com/es/" hreflang="es">
   <link rel="alternate" href="https://alitransfers.com/" hreflang="x-default">
   <meta name="robots" content="index, follow">
-  <!-- Google Tag Manager -->
+
+  <!-- Preload Poppins font for headings (critical for LCP) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap"></noscript>
+
+  <!-- Inline critical CSS for hero section and h1 -->
+  <style>
+    .hero {padding-top:120px;min-height:100vh;display:flex;align-items:center;position:relative;padding-bottom:60px;background-image:linear-gradient(0deg,color-mix(in srgb,#000,transparent 75%) 0%,var(--background-color) 115%,color-mix(in srgb,#000,transparent 85%) 100%),url(/assets/img/misc/background.webp);background-size:cover;background-repeat:no-repeat;}
+    .hero .hero-wrapper {width:100%;max-width:900px;margin:0 auto;}
+    .hero .hero-title {font-family:'Poppins',sans-serif;font-size:48px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:25px;letter-spacing:-0.02em;filter:drop-shadow(2px 4px 6px black);}
+    @media (max-width:768px){.hero .hero-title{font-size:36px;}}
+    @media (max-width:575px){.hero .hero-title{font-size:28px;}}
+    .hero .hero-title .typed{background:linear-gradient(120deg,#bc8937 0%,#c39f4c 25%,#f1db7e 40%,#d6ad50 60%,#bc8937 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;position:relative;font-weight:900;text-shadow:0 1px 2px #b78628,0 2px 6px #fffbe6,0 0.5px 0 #fffbe6,0 0 8px rgba(255,215,0,0.15),0 1.5px 0 #f6e283 inset;filter:brightness(1.08) contrast(1.1);}
+    .hero .hero-title .typed::after{content:"";position:absolute;bottom:-5px;left:0;width:100%;height:4px;background:linear-gradient(135deg,#e1c16c 0%,color-mix(in srgb,#e1c16c,#8b5cf6 50%) 100%);border-radius:2px;}
+  </style>
 
   <!-- LocalBusiness Structured Data -->
   <script type="application/ld+json">
@@ -113,7 +127,8 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@500;700&display=swap"></noscript>
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -126,7 +141,8 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 
 </head>
 
@@ -152,10 +168,10 @@
           <li><a href="#about">About</a></li>
           <li><a href="#terms">Terms</a></li>
           <li class="dropdown lang-dropdown">
-            <a href="#" id="selected-lang"><span class="lang-flag"><img src="assets/img/misc/flag-uk.png" alt="English" style="width:20px;height:14px;margin-right:8px;vertical-align:middle;"></span> <span class="lang-label">English</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <a href="#" id="selected-lang"><span class="lang-flag"><img src="assets/img/misc/flag-uk.png" alt="English" style="width:20px;height:14px;margin-right:8px;vertical-align:middle;" loading="lazy"></span> <span class="lang-label">English</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="." class="lang-option active" data-lang="en" data-flag="assets/img/misc/flag-uk.png" data-label="English"><img src="assets/img/misc/flag-uk.png" alt="English" style="width:20px;height:14px;margin-right:8px;vertical-align:middle;"> English</a></li>
-              <li><a href="/es/" class="lang-option" data-lang="es" data-flag="assets/img/misc/flag-es.png" data-label="Español"><img src="assets/img/misc/flag-es.png" alt="Español" style="width:20px;height:14px;margin-right:8px;vertical-align:middle;"> Español</a></li>
+              <li><a href="." class="lang-option active" data-lang="en" data-flag="assets/img/misc/flag-uk.png" data-label="English"><img src="assets/img/misc/flag-uk.png" alt="English" style="width:20px;height:14px;margin-right:8px;vertical-align:middle;" loading="lazy"> English</a></li>
+              <li><a href="/es/" class="lang-option" data-lang="es" data-flag="assets/img/misc/flag-es.png" data-label="Español"><img src="assets/img/misc/flag-es.png" alt="Español" style="width:20px;height:14px;margin-right:8px;vertical-align:middle;" loading="lazy"> Español</a></li>
             </ul>
           </li>
         </ul>
@@ -886,16 +902,16 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+  <script src="assets/vendor/typed.js/typed.umd.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 
 </body>
 
