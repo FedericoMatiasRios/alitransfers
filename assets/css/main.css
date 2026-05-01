@@ -764,7 +764,7 @@ section,
   padding-bottom: 60px;
   background-image:
   linear-gradient(0deg, color-mix(in srgb, #000000, transparent 75%) 0%, var(--background-color) 115%, color-mix(in srgb, #000000, transparent 85%) 100%),
-  url(/assets/img/misc/background.png);
+  url(/assets/img/misc/background.webp);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -1111,7 +1111,7 @@ section,
   .hero {
     background-image:
     linear-gradient(0deg, color-mix(in srgb, #000000, transparent 75%) 0%, var(--background-color) 115%, color-mix(in srgb, #000000, transparent 85%) 100%),
-    url(/assets/img/misc/background-m.png);
+    url(/assets/img/misc/background-m.webp);
     background-size: cover;
     min-height: 100vh;
   }
