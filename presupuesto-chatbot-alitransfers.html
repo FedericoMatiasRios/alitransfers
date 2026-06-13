@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presupuesto - Chatbot Web con IA</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --gold: #bc8937;
+      --gold-dark: #8d6425;
+      --line: #e5e7eb;
+      --paper: #ffffff;
+      --soft: #f8f5ef;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: #f3f4f6;
+      line-height: 1.55;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 16px auto;
+      background: var(--paper);
+      padding: 18mm;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .brand h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0.02em;
+      color: var(--gold-dark);
+    }
+
+    .brand p,
+    .meta p,
+    .section p,
+    .section li,
+    .table,
+    .note {
+      font-size: 14px;
+    }
+
+    .meta {
+      min-width: 220px;
+      text-align: right;
+    }
+
+    .meta p,
+    .brand p {
+      margin: 2px 0;
+      color: var(--muted);
+    }
+
+    .lead {
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: var(--soft);
+      border-left: 4px solid var(--gold);
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--gold-dark);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 6px;
+    }
+
+    ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #faf7f0;
+      color: var(--gold-dark);
+      font-weight: bold;
+    }
+
+    .totals {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .total-box {
+      border: 2px solid var(--gold);
+      padding: 14px 16px;
+      background: #fffdfa;
+    }
+
+    .total-box p {
+      margin: 0;
+    }
+
+    .total-box .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .total-box .amount {
+      font-size: 28px;
+      color: var(--gold-dark);
+      font-weight: bold;
+    }
+
+    .note {
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+        width: auto;
+        min-height: auto;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div class="brand">
+        <h1>Presupuesto de Desarrollo</h1>
+        <p>Implementación de chatbot web con IA para AliTransfers</p>
+        <p>Solución completa frontend + backend + despliegue</p>
+      </div>
+      <div class="meta">
+        <p><strong>Fecha:</strong> 11/06/2026</p>
+        <p><strong>Proyecto:</strong> Chatbot con Gemini</p>
+        <p><strong>Validez de oferta:</strong> 15 días</p>
+      </div>
+    </header>
+
+    <section class="lead">
+      <p>
+        Presupuesto para el diseño, desarrollo e implantación de un chatbot informativo con inteligencia artificial,
+        integrado en la web actual de AliTransfers, incluyendo la creación del backend desde cero, conexión segura con
+        la API de Gemini, adaptación del hosting y puesta en producción.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Alcance del proyecto</h2>
+      <ul>
+        <li>Diseño e integración de widget de chat en la web existente.</li>
+        <li>Desarrollo completo de backend en Python para exponer la API del chatbot.</li>
+        <li>Integración segura con Gemini AI mediante servidor intermedio para proteger la clave API.</li>
+        <li>Configuración de CORS, variables de entorno y estructura de despliegue.</li>
+        <li>Migración o adaptación a un hosting compatible con backend.</li>
+        <li>Configuración de entorno productivo y verificación de funcionamiento.</li>
+        <li>Ajuste del contexto del asistente con la información real del negocio y tarifas orientativas.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Desglose económico</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Descripción</th>
+            <th>Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Análisis y definición</td>
+            <td>Revisión técnica del sitio actual, definición funcional del chatbot, arquitectura y flujo de integración.</td>
+            <td>120 €</td>
+          </tr>
+          <tr>
+            <td>Desarrollo frontend</td>
+            <td>Creación del widget de chat, integración visual con la web, interacciones y conexión con API.</td>
+            <td>220 €</td>
+          </tr>
+          <tr>
+            <td>Desarrollo backend</td>
+            <td>Creación desde cero del backend en FastAPI, endpoints REST, control de CORS y configuración base.</td>
+            <td>320 €</td>
+          </tr>
+          <tr>
+            <td>Integración Gemini AI</td>
+            <td>Configuración de API, conexión segura, prompt contextual del negocio, reglas y pruebas funcionales.</td>
+            <td>220 €</td>
+          </tr>
+          <tr>
+            <td>Hosting y despliegue</td>
+            <td>Migración o adaptación a un hosting con soporte backend, variables de entorno, dominio y puesta en marcha.</td>
+            <td>210 €</td>
+          </tr>
+          <tr>
+            <td>Testing y ajustes finales</td>
+            <td>Pruebas completas, corrección de incidencias, ajuste de respuestas y validación final en entorno real.</td>
+            <td>140 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="totals">
+        <div>
+          <p class="note">
+            Este presupuesto contempla una implantación completa y funcional. No incluye redacción adicional de contenidos,
+            cambios estructurales amplios en la web ni mantenimiento evolutivo más allá de la entrega inicial.
+          </p>
+        </div>
+        <div class="total-box">
+          <p class="label">Total proyecto</p>
+          <p class="amount">1.230 €</p>
+          <p class="note">Impuestos no incluidos, si aplican.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Costes mensuales estimados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Estimación mensual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hosting backend</td>
+            <td>5 € a 15 € / mes</td>
+          </tr>
+          <tr>
+            <td>Uso Gemini API</td>
+            <td>Habitualmente inferior a 1 € / mes con tráfico bajo o medio</td>
+          </tr>
+          <tr>
+            <td>Mantenimiento opcional</td>
+            <td>49 € a 79 € / mes según nivel de soporte</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Propuesta de mantenimiento opcional</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Plan</th>
+            <th>Incluye</th>
+            <th>Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Básico</td>
+            <td>Supervisión básica, revisión de incidencias puntuales y control de servicio.</td>
+            <td>49 € / mes</td>
+          </tr>
+          <tr>
+            <td>Estándar</td>
+            <td>Soporte técnico, ajustes menores, seguimiento de funcionamiento y asistencia operativa.</td>
+            <td>59 € / mes</td>
+          </tr>
+          <tr>
+            <td>Avanzado</td>
+            <td>Mayor disponibilidad, soporte prioritario y bolsa de pequeños cambios mensuales.</td>
+            <td>79 € / mes</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Condiciones</h2>
+      <ul>
+        <li>Plazo estimado de ejecución: 5 a 10 días laborables.</li>
+        <li>Forma de pago recomendada: 50% al inicio y 50% a la entrega.</li>
+        <li>La presente propuesta tiene una validez de 15 días desde la fecha de emisión.</li>
+        <li>Los costes de servicios externos de terceros se facturan aparte, si correspondiera.</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>Documento preparado para presentación comercial. Puede exportarse directamente a PDF desde el navegador usando la opción Imprimir → Guardar como PDF.</p>
+    </footer>
+  </main>
+</body>
+</html>
